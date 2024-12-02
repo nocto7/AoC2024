@@ -233,3 +233,10 @@ DampedSafeRow ← ?>0/+?≡SafeRow ?⧅< -1⧻. ?°□
 
 ## ⭐️⭐️ Solution
 Now I have the second star for part two.
+
+## Afternotes
+
+I'm (probably) not going to get round to amending today's solutions to include things I realised later once I've got the solution entered but want to record them so I remember for future days.
+
+ `◇` [content](https://www.uiua.org/docs/content) unboxes the arguments to a function before calling it, more readable/reusable to use that than unboxing as the first thing within the function itself.
+ 
