@@ -158,3 +158,78 @@ In order to get the input loaded with different lengths of arrays we need to [bo
 ## ⭐️ Solution
 Using real input 📩 gave the correct solution.
 
+## Part 2
+
+Now the additional thing is that if a row is found to be unsafe you need to check if removing a single element can make it safe. This happens with two rows of the original example input if you remove the second level, 3, from the fourth line and the third level, 4, from the fifth line. So we expect to get 4 really safe rows now. Let's set the tests up first:
+
+```
+  ⍤⤙≍ 1 ReallySafeRow [7 6 4 2 1]
+  ⍤⤙≍ 0 ReallySafeRow [1 2 7 8 9]
+  ⍤⤙≍ 0 ReallySafeRow [9 7 6 2 1]
+  ⍤⤙≍ 1 ReallySafeRow [1 3 2 4 5]
+  ⍤⤙≍ 1 ReallySafeRow [8 6 4 4 1]
+  ⍤⤙≍ 1 ReallySafeRow [1 3 6 7 9]
+```
+
+So for the fourth row `[1 3 2 4 5]`, once we've found it's not safe by the initial criteria we want to try each of the possible options
+```
+[3 2 4 5]
+[1 2 4 5]
+[1 3 4 5]
+[1 3 2 5]
+[1 3 2 4]
+```
+and if any one of these is safe then we declare it safe.
+
+Looking through the uiua docs for something that would give me this kind of combination I found an experimental feature that creates `⧅` *[tuples](https://www.uiua.org/docs/tup)* so let's live life on the edge and make use of it. `⧅< 4 [1 3 2 4 5]`. I'm really not quite with how that works but the docs say it'll give me unique combinations of 4 rows from the array and it gives me exactly what I want so I'm going to shoot first and ask questions later. This gives me:
+```
+╭─         
+╷ 1 3 2 4  
+  1 3 2 5  
+  1 3 4 5  
+  1 2 4 5  
+  3 2 4 5  
+		  ╯
+```
+which is exactly the same as above (except the rows are backwards which makes no odds). 
+
+I need to add an `# Experimental!` comment to the top of the file before uiua lets me use the experimental function, acknowledging that I know this function might vanish in the future. I only want this code to work today so that's all fine with me.
+
+So I need to find if any of these are a `SafeRow`
+
+```
+≡SafeRow ⧅< 4 [1 3 2 4 5]
+```
+
+gives me `[0 0 1 1 0]` showing that two of the options are safe. 
+
+Let's test with another row that we know to not be able to be made safe by removing one element. `≡SafeRow ⧅< 4 [9 7 6 2 1]` gives an array of all zeroes showing that none of the possible combinations are safe.
+
+So in order to find if there's at least one SafeRow out of the combinations I again `/+` *reduce add* and see if I've got a number greater than zero indicating that at least one of the new rows was safe.
+
+This gives me `DampedSafeRow ← >0/+≡SafeRow ⧅< 4` 
+
+So now I want to combine these and see if the row is either safe itself, or the damped version can be safe. I use *fork* again to test both for a `SafeRow` and a `DampedSafeRow` and then I find there's also a logical `∨` [or](https://www.uiua.org/docs/or) function in the experimental features so we may as well use that here too.
+
+```
+ReallySafeRow ← ∨ ⊃SafeRow DampedSafeRow
+```
+
+A quick run with the example data shows that the unboxing of each row is better moved into the functions:
+```
+SafeRow       ← ≍ 1 × ⊃😍🤔📏°□
+DampedSafeRow ← >0/+≡SafeRow ⧅< 4 °□
+```
+
+That works on the example data but with the real data I get an answer that's too high. I look at some of the intermediate calculations using `?` to examine the [stack](https://www.uiua.org/docs/%3F) at various points and see arrays that are much longer than I'm expecting to see.
+
+🤦🏻‍♀️Aarghhh! I have once again assumed there are 5 elements in each row and have hard coded in the `4` to the combination calculation! 
+
+Instead of `4` we want to use one less than the length of the array. So that's `-1⧻` *subtract 1 length* and before we do that we want to duplicate the value on the stack with `.` so it isn't consumed by this calculation. Which changes the `DampedSafeRow` function to:
+
+```
+DampedSafeRow ← ?>0/+?≡SafeRow ?⧅< -1⧻. ?°□
+```
+
+## ⭐️⭐️ Solution
+Now I have the second star for part two.
