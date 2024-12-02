@@ -86,3 +86,8 @@ this gives the input in the form I wanted to start with, hurray!
 
 ### ⭐️ Solution
 Using real input `📩°⊟⍉≡🗒️📋💾` gave the correct solution.
+
+### Afternotes
+
+#### A more succinct way to parse the input
+`⊜(⊜⋕⊸≠@ )⊸≠@\n` (from Kaikalii on the uiua discord)
