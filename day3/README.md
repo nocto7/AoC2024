@@ -8,7 +8,7 @@ The puzzles unlock at 5am in my timezone. I'm not a speedrunner - neither in gen
 
 So today's puzzle looks like a pretty simple regex problem. Everybody stand back... I know [regular expressions](https://www.explainxkcd.com/wiki/index.php/208:_Regular_Expressions)! 
 
-Perhaps there's a more uiua-ish way to handle it but I'll take what I already know. I open up the [uiua online pad/editor](https://uiua.org/pad?src=0_14_0-dev_5__SW5wdXQg4oaQICJ4bXVsKDIsNCklJm11bFszLDddIUBeZG9fbm90X211bCg1LDUpK211bCgzMiw2NF10aGVuKG11bCgxMSw4KW11bCg4LDUpKSIKCnJlZ2V4ICJtdWxcXCgoXFxkKyksKFxcZCspXFwpIiBJbnB1dArijYkKwrDilqEK4oaYMQrii5UKwrDiip8Kw5cKLysK) and try it out. I fight with the [regex](https://www.uiua.org/docs/regex) function a bit because it wants double escaping and my brain doesn't like that but this works to find every instance of `mul(X,Y)` in the input string. The puzzle tells me we don't want to catch anything with spaces in or worry about things like the `do_not_mul(5,5)` bit (it counts because it's got `mul(5,5)` within it).^[3]
+Perhaps there's a more uiua-ish way to handle it but I'll take what I already know. I open up the [uiua online pad/editor](https://uiua.org/pad?src=0_14_0-dev_5__SW5wdXQg4oaQICJ4bXVsKDIsNCklJm11bFszLDddIUBeZG9fbm90X211bCg1LDUpK211bCgzMiw2NF10aGVuKG11bCgxMSw4KW11bCg4LDUpKSIKCnJlZ2V4ICJtdWxcXCgoXFxkKyksKFxcZCspXFwpIiBJbnB1dArijYkKwrDilqEK4oaYMQrii5UKwrDiip8Kw5cKLysK) and try it out. I fight with the [regex](https://www.uiua.org/docs/regex) function a bit because it wants double escaping and my brain doesn't like that but this works to find every instance of `mul(X,Y)` in the input string. The puzzle tells me we don't want to catch anything with spaces in or worry about things like the `do_not_mul(5,5)` bit (it counts because it's got `mul(5,5)` within it).[^3]
 ```
 Input ← "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))"
 
@@ -25,14 +25,14 @@ This gives me the data I want:
                       ╯
 ```
 
-Then I run through this interactively. I want to find the multiple of each of the two numbers within the `mul` functions. To get the numbers I `⍉` *transpose* the data, then `°□` *unbox* it^[1] and `↘1` *drop* the first line because I don't need the `mul(X,Y)` bits. At this point I have:
+Then I run through this interactively. I want to find the multiple of each of the two numbers within the `mul` functions. To get the numbers I `⍉` *transpose* the data, then `°□` *unbox* it[^1] and `↘1` *drop* the first line because I don't need the `mul(X,Y)` bits. At this point I have:
 ```
 ╭─
  ⌜2⌟ ⌜5⌟ ⌜11⌟ ⌜8⌟
  ⌜4⌟ ⌜5⌟ ⌜8⌟ ⌜5⌟
                    ╯
 ```
-Now I only have numbers I use `⋕` *parse* to turn them into actual numbers and `°⊟` *uncouple*^[2] them to give me two arrays:
+Now I only have numbers I use `⋕` *parse* to turn them into actual numbers and `°⊟` *uncouple*[^2] them to give me two arrays:
 ```
 [4 5 8 5]
 [2 5 11 8]
@@ -146,6 +146,6 @@ Now I can do what I want to do and finish off the solution with `/+≡◇⏱️`
 
 Happily that all worked with the real input and I have two gold stars for day 3.
 
-[1]: This unboxing was unnecessary and can be removed.
-[2]: It's not necessary to uncouple before multiplying either. I missed that you can use `/×` *reduce multiply* to multiply the rows of the array together.
-[3]: I missed that the puzzle mentioned that all the numbers to be multiplied were 1 to 3 digit numbers. The `+` in my regex is looking for series of one or more digits, fortunately the puzzle input wasn't tricksy enough to give any 4+ digit numbers so it all worked out. Replacing the `+` by `{1,3}` would have restricted the matches to only allowed numbers though.
+[^1]: This unboxing was unnecessary and can be removed.
+[^2]: It's not necessary to uncouple before multiplying either. I missed that you can use `/×` *reduce multiply* to multiply the rows of the array together.
+[^3]: I missed that the puzzle mentioned that all the numbers to be multiplied were 1 to 3 digit numbers. The `+` in my regex is looking for series of one or more digits, fortunately the puzzle input wasn't tricksy enough to give any 4+ digit numbers so it all worked out. Replacing the `+` by `{1,3}` would have restricted the matches to only allowed numbers though.
