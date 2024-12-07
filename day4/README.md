@@ -309,4 +309,8 @@ Finally I replace the name of my AlphaDiag function with an emoji. I pick the fl
 Annoyingly I get the wrong answer the first time I try to solve with the real input. I get 2513, and therefore no gold star. It tells me my answer is too low so I'm missing some `XMAS`s. Hmmm.
 
 I'm leaving this for now as I can see from other people's solutions that there are probably a lot simpler ways to solve it! Plus I think that coming back to this in a few days and reading it over will be good for testing my ability to read back uiua code. I've learnt a lot from trying to solve the problem this way even if I haven't helped the poor elf out.
+
+I came back to look at this on the 7th and found the solution. Everything I did here was almost correct apart from this [one weird thing](redux.md). 
+ 
 [^1]: I spotted a problem with this later as there's a zero in the array I'm playing with that gets removed as well so the first diagonal is missing an element but it won't be a problem with the real input data which is all characters so I ignore it.
+
