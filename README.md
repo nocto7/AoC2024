@@ -15,10 +15,10 @@ Getting the input is much simpler now! This involves checking if the numbers in 
 ## ⭐️⭐️ 3 Mull It Over
 We're looking through a stream of text looking for `mul(x,y)` commands. I use *regex* which feels a bit of a cheat as it's not really uiua at all. For the second part we need to ignore parts of the string and rather than doing more regex I use *partition* and *mask* to split the input and remove sections, in a very similar way to the way I usually handle the input. Finding the *shape* of arrays helped me debug.
 
-## 4 ⭐️Ceres Search
+## [4 ⭐️⭐️Ceres Search](day4)
 This is a wordsearch grid that only contains X, M, A and S and you are looking for how many times the word XMAS appears in it. Getting the horizontal and vertical words using *find*, *reverse* and *transpose*. I spend approximately forever trying to get the diagonals of the grid out. I use *keep* *pick*. I run into trouble trying to make a function that works on one element work with *rows* and get the advice to use *rows F dip fix* which I don't understand at the time. Eventually I get an answer but it's too low and I give up for now. I think I need to use a different approach than finding the diagonals as I'm clearly doing something wrong.
 
-🆕I came back to look at this on the 7th and found I'd made an incorrect assumption which had resulted in me finding the same set of diagonals twice over; which worked on the test data but not on the real data.
+🆕I [came back to look at this](day4/redux.md) on the 7th and found I'd made an incorrect assumption which had resulted in me finding the same set of diagonals twice over; which worked on the test data but not on the real data. Then I found part two a much easier puzzle to solve than the first part.
 
 ## ⭐️5 Print Queue
 We're figuring out if lists of numbers meet certain ordering rules. The data is more complicated to parse today with two separate sections and I start to find juggling the items on the stack a bit complicated. I use *on* to keep things on top of the stack when I call a function. I put the rules into a *map*.  I use *memberof* to check if the numbers meet the rules. I work out looping with *do* and *switch*.
