@@ -34,6 +34,11 @@ I'm really pleased with getting the solution to part one and should have stopped
 
 This is the first day where I feel like I'm writing code in uiua rather than wrangling with slippery eels. My algorithm is not very efficient and takes a while to run but it works and I feel the code is reasonably clean and I'd know what it was doing if I looked back at it. I'm a lot clearer about what's going onto the stack and how to rearrange it. I used *subscripts* for the first time which don't work on everything but they are very neat when they do. I'm quite happy with how easily I got part two extrapolated from my part one solution too.
 
+# ⭐️ [8 Resonant Collinearity](day8)
+
+After a couple of days away from home I'm back to find 'antinodes' of rooftop antennae. The puzzle seems fairly simple but I make a silly mistake combining rows together too many times and write some nasty filtering code I want to work out a better version of.
+
+
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
 - *rows F dip fix* (I've worked out why this works but not explained it here yet.)
