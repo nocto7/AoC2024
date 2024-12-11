@@ -36,8 +36,12 @@ This is the first day where I feel like I'm writing code in uiua rather than wra
 
 ## ⭐️ [8 Resonant Collinearity](day8)
 
-After a couple of days away from home I'm back to find 'antinodes' of rooftop antennae. The puzzle which involves handling another 2D grid seems fairly simple but I make a silly mistake combining rows together too many times and write some nasty filtering code I want to work out a better version of.
+After a couple of days away from home I'm back to find 'antinodes' of rooftop antennae. The puzzle which involves handling another 2D grid seems fairly simple but I make a silly mistake combining rows together too many times and write some nasty filtering code I want to work out a better version of. Debugging and refactoring.
 
+
+## ⭐️ [9 Disk Fragmenter](day9)
+
+I don't really get why this puzzle about moving files around on disks took so long for me to get my head around! Having finished it I don't think it's that hard to understand but I made hard work of it. Mostly learnt a lot about refactoring and debugging.
 
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
