@@ -43,6 +43,10 @@ After a couple of days away from home I'm back to find 'antinodes' of rooftop an
 
 I don't really get why this puzzle about moving files around on disks took so long for me to get my head around! Having finished it I don't think it's that hard to understand but I made hard work of it. Mostly learnt a lot about refactoring and debugging.
 
+## ⭐️⭐️ [10 Hoof It](day10)
+
+This two dimensional grid puzzle was easy to visualise but I made hard work of moving things around in *box*es. The first time I've used *fold* to aggregate the answer. Part two turned out to be something I'd done on the way to part one so it was nice to get an easy second star!
+
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
 - *rows F dip fix* (I've worked out why this works but not explained it here yet.)
