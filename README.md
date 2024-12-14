@@ -47,6 +47,10 @@ I don't really get why this puzzle about moving files around on disks took so lo
 
 This two dimensional grid puzzle was easy to visualise but I made hard work of moving things around in *box*es. The first time I've used *fold* to aggregate the answer. Part two turned out to be something I'd done on the way to part one so it was nice to get an easy second star!
 
+## ⭐️ [11 Plutonian Pebbles](day11)
+
+An obvious case of the naive algorithm isn't going to work for very long. I intended to do something better from the start but the simple solution worked for Part One. Attempts to do better for part two came to nowt. Mostly I got tangled up in rearranging boxes again. One to come back to later I think.
+
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
 - *rows F dip fix* (I've worked out why this works but not explained it here yet.)
