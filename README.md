@@ -51,6 +51,10 @@ This two dimensional grid puzzle was easy to visualise but I made hard work of m
 
 An obvious case of the naive algorithm isn't going to work for very long. I intended to do something better from the start but the simple solution worked for Part One. Attempts to do better for part two came to nowt. Mostly I got tangled up in rearranging boxes again. One to come back to later I think.
 
+## ⭐️ [12 Garden Groups](day12)
+
+Two dimensional partitioning is brilliant. I was all set to work this out in a much more complicated way! That ended up being quite straightforward (though I haven't tried part two yet).
+
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
 - *rows F dip fix* (I've worked out why this works but not explained it here yet.)
