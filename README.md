@@ -55,6 +55,10 @@ An obvious case of the naive algorithm isn't going to work for very long. I inte
 
 Two dimensional partitioning is brilliant. I was all set to work this out in a much more complicated way! That ended up being quite straightforward (though I haven't tried part two yet).
 
+## ⭐️ [13 Claw Contraption](day13)
+
+Simultaneous equations cause me more trouble than I'd expect (not least not finding the correct part two answer), but nothing fancy new is needed to solve the puzzle.
+
 ## 📑bookmarked to look at further
 - *tuples* how do the operators work?
 - *rows F dip fix* (I've worked out why this works but not explained it here yet.)
